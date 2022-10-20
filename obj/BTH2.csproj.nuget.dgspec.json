@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\An Nguyen\\Desktop\\NguyenVanAnBTH2\\BTH2\\BTH2.csproj": {}
+    "C:\\Users\\An Nguyen\\Desktop\\New folder\\BTH2\\BTH2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\An Nguyen\\Desktop\\NguyenVanAnBTH2\\BTH2\\BTH2.csproj": {
+    "C:\\Users\\An Nguyen\\Desktop\\New folder\\BTH2\\BTH2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\An Nguyen\\Desktop\\NguyenVanAnBTH2\\BTH2\\BTH2.csproj",
+        "projectUniqueName": "C:\\Users\\An Nguyen\\Desktop\\New folder\\BTH2\\BTH2.csproj",
         "projectName": "BTH2",
-        "projectPath": "C:\\Users\\An Nguyen\\Desktop\\NguyenVanAnBTH2\\BTH2\\BTH2.csproj",
+        "projectPath": "C:\\Users\\An Nguyen\\Desktop\\New folder\\BTH2\\BTH2.csproj",
         "packagesPath": "C:\\Users\\An Nguyen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\An Nguyen\\Desktop\\NguyenVanAnBTH2\\BTH2\\obj\\",
+        "outputPath": "C:\\Users\\An Nguyen\\Desktop\\New folder\\BTH2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\An Nguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,18 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SQLite": {
+              "target": "Package",
+              "version": "[6.0.9, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
