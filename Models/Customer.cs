@@ -1,10 +1,11 @@
+using System.ComponentModel.DataAnnotations;
 namespace BTH2.Models
 {
     public class Customer
     {
-        public int Id { get; set; }
-        public string? FullName { get; set; }
-        public int Age { get; set; }
-        public String? Sđt { get; set; }
+        [Key]
+        public string? CustomerID { get; set; }
+        public string? CustomerName  { get; set; }
+        public string? CustomerAdd  { get; set; }
     }
 }

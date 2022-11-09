@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BTH2.Data;
 using BTH2.Models;
 
-namespace BTH2.Controllers
+namespace BTH02.Controllers
 {
     public class PersonController : Controller
     {
@@ -28,7 +27,7 @@ namespace BTH2.Controllers
         }
 
         // GET: Person/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string id)
         {
             if (id == null || _context.Person == null)
             {
@@ -36,7 +35,7 @@ namespace BTH2.Controllers
             }
 
             var person = await _context.Person
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.PersonName == id);
             if (person == null)
             {
                 return NotFound();
@@ -56,7 +55,7 @@ namespace BTH2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FullName,Age,Sđt")] Person person)
+        public async Task<IActionResult> Create([Bind("PersonName,PersonAge,PersonAdd")] Person person)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +67,7 @@ namespace BTH2.Controllers
         }
 
         // GET: Person/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(string id)
         {
             if (id == null || _context.Person == null)
             {
@@ -88,9 +87,9 @@ namespace BTH2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FullName,Age,Sđt")] Person person)
+        public async Task<IActionResult> Edit(string id, [Bind("PersonName,PersonAge,PersonAdd")] Person person)
         {
-            if (id != person.Id)
+            if (id != person.PersonName)
             {
                 return NotFound();
             }
@@ -104,7 +103,7 @@ namespace BTH2.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PersonExists(person.Id))
+                    if (!PersonExists(person.PersonName))
                     {
                         return NotFound();
                     }
@@ -119,7 +118,7 @@ namespace BTH2.Controllers
         }
 
         // GET: Person/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(string id)
         {
             if (id == null || _context.Person == null)
             {
@@ -127,7 +126,7 @@ namespace BTH2.Controllers
             }
 
             var person = await _context.Person
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.PersonName == id);
             if (person == null)
             {
                 return NotFound();
@@ -139,7 +138,7 @@ namespace BTH2.Controllers
         // POST: Person/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(string id)
         {
             if (_context.Person == null)
             {
@@ -155,9 +154,9 @@ namespace BTH2.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PersonExists(int id)
+        private bool PersonExists(string id)
         {
-          return (_context.Person?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Person?.Any(e => e.PersonName == id)).GetValueOrDefault();
         }
     }
 }
