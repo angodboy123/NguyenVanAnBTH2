@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BTH2.Models;
 
-namespace BTH02.Controllers
+namespace BTH2.Controllers
 {
     public class CustomerController : Controller
     {
